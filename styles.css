@@ -1,7 +1,6 @@
 * { box-sizing: border-box; }
 
 body {
-  /* or any other parent wrapper */
   margin: 0;
   display: flex;
   height: 100dvh;
@@ -15,22 +14,18 @@ body {
   display: flex;
   margin: auto;
   width: 300px;
-  /*1* let pointer event go trough pages of lower Z than .book */
   pointer-events: none;
   transform-style: preserve-3d;
   transition: translate 1s;
   translate: calc(min(var(--c), 1) * 50%) 0%;
-  /* DEMO ONLY: incline on the X axis for pages preview */
   rotate: 1 0 0 30deg;
 }
 
 .page {
   --thickness: 5;
-  /* PS: Don't go below thickness 0.4 or the pages might transpare */
   flex: none;
   display: flex;
   width: 100%;
-  /*1* allow pointer events on pages */
   pointer-events: all;
   user-select: none;
   transform-style: preserve-3d;
@@ -40,7 +35,7 @@ body {
     transform 1s,
     rotate 1s ease-in calc((min(var(--i), var(--c)) - max(var(--i), var(--c))) * 50ms);
   translate: calc(var(--i) * -100%) 0px 0px;
-  transform: translateZ( calc((var(--c) - var(--i) - 0.5) * calc(var(--thickness) * 1px)));
+  transform: translateZ(calc((var(--c) - var(--i) - 0.5) * calc(var(--thickness) * 1px)));
   rotate: 0 1 0 calc(clamp(0, var(--c) - var(--i), 1) * -180deg);
 }
 
@@ -57,7 +52,6 @@ body {
   padding: 2rem;
   backface-visibility: hidden;
   background-color: #fff;
-  /* Fix backface visibility Firefox: */
   translate: 0px;
 }
 
@@ -66,3 +60,61 @@ body {
   translate: -100% 0;
   rotate: 0 1 0 180deg;
 }
+
+/* Aligning icons on the front page */
+.front {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.front a {
+    display: inline-flex;
+    width: 0;
+    height: 20%;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+  }
+
+.front .fa-github {
+  align-self: flex-start; /* Align GitHub logo to the left */
+  font-size: 2em;
+  color: #000;
+}
+
+.front .fa-solid {
+  align-self: flex-end; /* Align project link icon to the right */
+  font-size: 2em;
+  color: #000;
+  vertical-align: middle;
+}
+
+.back {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .back a {
+    display: inline-flex;
+    width: 0;
+    height: 20%;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+  }
+  
+  .back .fa-github {
+    align-self: flex-start; /* Align GitHub logo to the left */
+    font-size: 2em;
+    color: #000;
+  }
+  
+  .back .fa-solid {
+    align-self: flex-end; /* Align project link icon to the right */
+    font-size: 2em;
+    color: #000;
+    vertical-align: middle;
+  }
+  
