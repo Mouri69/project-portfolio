@@ -118,7 +118,7 @@ body {
     vertical-align: middle;
   }
   
- /* Responsive Styles */
+/* Responsive Styles */
 @media (max-width: 768px) {
     body {
         overflow: auto; /* Enable scrolling for tablets */
@@ -136,11 +136,13 @@ body {
     }
 
     .book {
-        max-width: 70%; /* Full width for mobile */
+        max-width: 100%; /* Full width for mobile */
+        transform: scale(0.5); /* Scale down the book to zoom out */
+        transform-origin: top left; /* Adjust the origin of scaling */
     }
 
     .page {
-        max-width: 70%; /* Ensure page takes full width */
+        max-width: 100%; /* Ensure page takes full width */
         margin: 10px 0; /* Vertical margin for stacked pages */
     }
 
