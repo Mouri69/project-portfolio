@@ -118,3 +118,28 @@ body {
     vertical-align: middle;
   }
   
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .book {
+        max-width: 90%; /* Scale down for tablets and smaller screens */
+    }
+
+    .page {
+        max-width: 90%; /* Ensure pages fit well */
+    }
+}
+
+@media (max-width: 480px) {
+    .book {
+        max-width: 100%; /* Full width for very small screens */
+        transform: scale(0.8); /* Slightly scale down for very small screens */
+    }
+
+    .page {
+        max-width: 100%;
+    }
+
+    .front, .back {
+        padding: 10px;
+    }
+}
