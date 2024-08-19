@@ -118,4 +118,33 @@ body {
     vertical-align: middle;
   }
   
+ /* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        overflow: auto; /* Enable scrolling for tablets */
+    }
 
+    .book {
+        max-width: 90%; /* Reduce book width for tablets */
+        height: auto; /* Allow height to adjust automatically */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        overflow: auto; /* Enable scrolling for mobile */
+    }
+
+    .book {
+        max-width: 70%; /* Full width for mobile */
+    }
+
+    .page {
+        max-width: 70%; /* Ensure page takes full width */
+        margin: 10px 0; /* Vertical margin for stacked pages */
+    }
+
+    .front, .back {
+        padding: 15px; /* Reduced padding for mobile */
+    }
+}
